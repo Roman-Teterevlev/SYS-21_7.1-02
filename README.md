@@ -77,6 +77,9 @@ Ansible.Часть 2
       recurse: yes
 ...
 ```
+![7-01 1_6](https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/b4e245c1-8ee8-4e63-9cbe-c7bb90970490)
+![7-01 1_7](https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/ae9be71e-3ca5-4d96-be18-d4223215f8c8)
+![7-01 1_8](https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/0e00974d-88b2-45d4-b1fc-db9cfa18e6b8)
 
 ## Задание 2
 Выполните действия, приложите файлы с модифицированным плейбуком и вывод выполнения.
