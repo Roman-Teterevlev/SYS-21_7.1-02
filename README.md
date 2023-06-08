@@ -59,6 +59,24 @@ Ansible.Часть 2
 <img width="960" alt="7-01 1_5" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/a09ca835-9acc-4b28-91ae-6ed543283cfd">
 
 3.
+```
+---
+- name: test
+  hosts: servers
+  become: true
+
+  vars:
+    path: /etc/update-motd.d/
+
+  tasks:
+
+  - name: Entrance change
+    file:
+      path: "{{path}}"
+      mode: u=rw,g=rw,o=rw
+      recurse: yes
+...
+```
 
 ## Задание 2
 Выполните действия, приложите файлы с модифицированным плейбуком и вывод выполнения.
