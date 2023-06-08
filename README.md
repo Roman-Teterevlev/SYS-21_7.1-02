@@ -28,6 +28,32 @@ Ansible.Часть 2
       remote_src: yes
 ...
 ```
+<img width="960" alt="7-01 1_1" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/195ab8f1-0798-4d41-ab45-bc8d674fc6c0">
+<img width="960" alt="7-01 1_2" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/691b0e09-3405-4531-92ee-90215cb42e28">
+<img width="960" alt="7-01 1_3" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/940a92a1-cb8a-4bbc-9e84-a03e0f4d3076">
+2.
+```
+---
+- name: test2
+  hosts: servers
+  become: true
+
+  tasks:
+
+  - name: Install the tuned
+    apt:
+      name: tuned
+      state: present
+
+  - name: Start the tuned
+    systemd:
+      name: tuned
+      state: started
+      enabled: yes
+    become: yes
+    become_user: root
+...
+```
 
 ## Задание 2
 Выполните действия, приложите файлы с модифицированным плейбуком и вывод выполнения.
