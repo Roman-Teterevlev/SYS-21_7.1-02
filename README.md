@@ -54,6 +54,9 @@ Ansible.Часть 2
     become_user: root
 ...
 ```
+<img width="960" alt="7-01 1_4" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/5a0f6970-bfec-492c-9c08-432b581e7ab4">
+<img width="960" alt="7-01 1_5" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/a09ca835-9acc-4b28-91ae-6ed543283cfd">
+3.
 
 ## Задание 2
 Выполните действия, приложите файлы с модифицированным плейбуком и вывод выполнения.
