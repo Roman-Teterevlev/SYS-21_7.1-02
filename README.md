@@ -61,7 +61,7 @@ Ansible.Часть 2
 3.
 ```
 ---
-- name: test
+- name: test3
   hosts: servers
   become: true
 
