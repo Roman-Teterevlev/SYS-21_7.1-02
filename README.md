@@ -88,7 +88,9 @@ Ansible.Часть 2
 
 ### Ответ:
 ``` vi motd.j2 ```
+
 ``` Hello, and welcome to "{{ ansible_facts['fqdn'] }}" ```
+
 ```
 ---
 - name: test3
