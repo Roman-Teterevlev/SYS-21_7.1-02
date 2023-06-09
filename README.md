@@ -115,6 +115,8 @@ Ansible.Часть 2
       mode: '644'
 ...
 ```
+![7-01 1_9](https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/92249243-d09b-42a1-a5c4-690e79e4e09a)
+![7-01 1_10](https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/b3b6993d-4c02-491f-9f2f-209477dd6b47)
 
 ## Задание 3
 Выполните действия, приложите архив с ролью и вывод выполнения.
