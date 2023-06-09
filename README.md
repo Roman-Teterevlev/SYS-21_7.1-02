@@ -87,6 +87,32 @@ Ansible.Часть 2
 Модифицируйте плейбук из пункта 3, задания 1. В качестве приветствия он должен установить IP-адрес и hostname управляемого хоста, пожелание хорошего дня системному администратору.
 
 ### Ответ:
+``` vi motd.j2 ```
+``` Hello, and welcome to "{{ ansible_facts['fqdn'] }}" ```
+```
+---
+- name: test3
+  hosts: servers
+  become: true
+
+  vars:
+    path: /etc/update-motd.d/
+
+  tasks:
+
+  - name: Entrance change
+    file:
+      path: "{{path}}"
+      mode: u=rw,g=rw,o=rw
+      recurse: yes
+
+  - name: Add the message
+    template:
+      src: motd.j2
+      dest: /etc/motd
+      mode: '644'
+...
+```
 
 ## Задание 3
 Выполните действия, приложите архив с ролью и вывод выполнения.
