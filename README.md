@@ -137,6 +137,16 @@ Ansible.Часть 2
 - предоставьте скриншот браузера, отображающего сконфигурированный index.html в качестве сайта.
 
 ### Ответ:
+``` ansible@v824685:~/ansible$ cat inventory ```
+```
+[servers]
+server1 ansible_host=vm1rt@185.244.180.169
+server2 ansible_host=vm2rt@77.232.36.51
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+```
+
 ``` ansible@v824685:~$ cat ansible/roles/apache/tasks/install.yaml ```
 ```
 ---
@@ -209,4 +219,7 @@ Ansible.Часть 2
   roles:
     - apache
 ```
+<img width="960" alt="7-01 1_11" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/330c917c-1098-4309-ba5e-1be77e1acfb6">
+<img width="363" alt="7-01 1_12" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/45a53d2e-3f32-424b-b16b-dabbdc350d42">
+<img width="366" alt="7-01 1_13" src="https://github.com/Roman-Teterevlev/SYS-21_7.1-02/assets/132853752/d14be3f7-51f2-46fc-aae3-668a78b11918">
 
