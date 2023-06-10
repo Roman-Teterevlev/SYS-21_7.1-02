@@ -137,7 +137,7 @@ Ansible.Часть 2
 - предоставьте скриншот браузера, отображающего сконфигурированный index.html в качестве сайта.
 
 ### Ответ:
-``` cat ansible/roles/apache/tasks/install.yaml ```
+``` ansible@v824685:~$ cat ansible/roles/apache/tasks/install.yaml ```
 ```
 ---
   - name: install apache web server
@@ -145,5 +145,68 @@ Ansible.Часть 2
       name:
       - apache2
       state: present
+```
+``` ansible@v824685:~$ cat ansible/roles/apache/tasks/service.yaml ```
+```
+---
+  - name: start apache webserver
+    service:
+      name: apache2
+      state: started
+      enabled: true
+```
+``` ansible@v824685:~$ cat ansible/roles/apache/tasks/port.yaml ```
+```
+---
+  - name: wait for port 80 to become open
+    wait_for:
+      port: 80
+      delay: 10
+```
+``` ansible@v824685:~$ cat ansible/roles/apache/tasks/index.yaml ```
+```
+---
+- name: add the index page
+  template:
+    src: "index.html.j2"
+    dest: "/var/www/html/index.html"
+    owner: root
+    group: root
+    mode: 0755
+```
+``` ansible@v824685:~$ cat ansible/roles/apache/tasks/connection.yaml ```
+```
+---
+  - name: Check that you can connect (GET) to a page and it returns a status 200
+    ansible.builtin.uri:
+      url: "{{address}}"
+    vars:
+      address: "http://{{ ansible_facts.all_ipv4_addresses [0] }}"
+```
+``` ansible@v824685:~$ cat ansible/roles/apache/tasks/main.yml ```
+```
+---
+# tasks file for apache
+  - import_tasks: install.yaml
+  - import_tasks: service.yaml
+  - import_tasks: port.yaml
+  - import_tasks: index.yaml
+  - import_tasks: connection.yaml
+```
+``` ansible@v824685:~$ cat ansible/roles/apache/templates/index.html.j2 ```
+```
+<p>IP: {{ ansible_facts.all_ipv4_addresses [0] }}
+<p>CPU: {{ ansible_facts.processor }}
+<p>RAM_mb: {{ ansible_facts.memtotal_mb }}
+<p>vda1_size: {{ ansible_facts['devices']['vda']['partitions']['vda1']['size'] }}
+```
+``` ansible@v824685:~/ansible$ cat test4.yaml ```
+```
+---
+- name: test4
+  hosts: servers
+  become: true
+  roles:
+    - apache
 ```
 
