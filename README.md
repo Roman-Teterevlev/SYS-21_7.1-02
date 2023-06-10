@@ -137,3 +137,13 @@ Ansible.Часть 2
 - предоставьте скриншот браузера, отображающего сконфигурированный index.html в качестве сайта.
 
 ### Ответ:
+``` cat ansible/roles/apache/tasks/install.yaml ```
+```
+---
+  - name: install apache web server
+    apt:
+      name:
+      - apache2
+      state: present
+```
+
